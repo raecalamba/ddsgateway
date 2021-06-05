@@ -1,7 +1,4 @@
 <?php
-
-
-
 /*
 |---------------------------------------------------------------------
 -----
@@ -14,11 +11,9 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
 $router->get('/', function () use ($router) {
  return $router->app->version();
 }); //this will point to your local directory
-
 /* old code
 // unsecure routes 
 $router->group(['prefix' => 'api'], function () use ($router) {
@@ -35,7 +30,6 @@ $router->group(['middleware' => 'client.credentials'], function () use ($router)
     $router->put('/users1/{id}', 'User1Controller@update'); //update user record
     $router->patch('/users1/{id}', 'User1Controller@update'); //update user record
     $router->delete('/users1/{id}', 'User1Controller@delete'); //delete record
-
     // API GATEWAY FOR SITE2 USERS
     $router->get('/users2', 'User2Controller@index'); //get all users record
     $router->post('/users2', 'User2Controller@add'); //create new users record
@@ -50,4 +44,4 @@ $router->group(['middleware' => 'client.credentials'], function () use ($router)
         $router->get('users/me', 'UserController@me');
     });
 
-?>
+?> 
