@@ -55,6 +55,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        return parent::render($request, $exception);
     // http not found 
     if ($exception instanceof HttpException) { $code = $exception->getStatusCode();
     $message = Response::$statusTexts[$code];
