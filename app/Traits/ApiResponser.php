@@ -1,22 +1,22 @@
 <?php
 
-    namespace App\Traits;
+namespace App\Traits;
 
-    use Illuminate\Http\Response;
+use Illuminate\Http\Response;
 
-    trait ApiResponser
+trait ApiResponser
+
 {
+
     /**
     * Build success response
     * @param string|array $data
     * @param int $code
-    * @return Illuminate\Http\Response
+    * @return Illuminate\Http\JsonResponse
     */
 
     public function successResponse($data, $code = Response::HTTP_OK)
     {
-        // old code
-        // return response()->json(['data' => $data], $code);
         return response($data, $code)->header('Content-Type', 'application/json');
     }
 
@@ -32,30 +32,29 @@
         return response()->json(['data' => $data], $code);
     }
 
-
-
-    /**
+     /**
      * Build error responses
     * @param string|array $message
     * @param int $code
     * @return Illuminate\Http\JsonResponse
     */
-
+    
     public function errorResponse($message, $code)
     {
         return response()->json(['error' => $message, 'code' => $code], $code);
     }
 
-    /**
-     * Build error responses
+
+     /**
+     * Build error message
     * @param string|array $message
     * @param int $code
-    * @return Illuminate\Http\Response
+    * @return Illuminate\Http\JsonResponse
     */
-
+    
     public function errorMessage($message, $code)
     {
-        return response($message, $code) ->header('Content-Type', 'application/json');
+        return response($message, $code)->header('Content-Type', 'application/json');
     }
 
 }
